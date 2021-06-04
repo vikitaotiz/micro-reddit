@@ -31,3 +31,32 @@ html {
   border: 3px solid;
   background-color: rgba(0, 0, 0, 0.4);
 }
+
+.bn_img_1 {
+  padding: 5px;
+  position: absolute;
+  top: 30%;
+  left: 25%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.cl_grey {
+  color: grey;
+}
+
+.cl_green {
+  color: green;
+}
+
+.cl_red {
+  color: red;
+}
+
+.main_cl {
+  color: #d84918;
+}
+
+.show_img {
+  width: 100%;
+  height: 350px;
+}
