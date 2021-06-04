@@ -2,6 +2,9 @@
 
 This is a simple blogging application project written on ruby on rails. The project test basic concepts of MVC application architecture. It involves, installation and configuration of ruby on rails, use of models, controllers, views, routers and database. It also tests basic CRUD implementation.
 
+![viki-reddit](https://user-images.githubusercontent.com/42869046/120814860-f0efb500-c557-11eb-93ce-b1d63919aaff.JPG)
+
+
 ## Built With
 
 - Ruby
