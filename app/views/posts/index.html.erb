@@ -4,7 +4,7 @@
         <% @posts.first(4).each do |post| %>
             <div class="col-lg-3 col-md-6 col-sm-12 mb-3">
                 <div class="">
-                    <div class="card shadow rounded">
+                    <div class="card shadow rounded-5">
                         <div class="card-body">
                             <h5 class="card-title">
                              <%= link_to post.title, post, class: "text-decoration-none" %>
@@ -37,7 +37,7 @@
                             <i class="fas fa-angle-down"></i></a>
                         </div>   
                         <div class="col">
-                            <a class="nav-link" aria-current="page" href="#">
+                            <a class="nav-link" aria-current="page" href="/posts/new">
                             <i class="far fa-star"></i> New</a>
                         </div>
                         <div class="col">
