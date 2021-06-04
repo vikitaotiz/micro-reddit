@@ -1,13 +1,13 @@
-    <div class="card">
+    <div class="card shadow">
         <div class="card-body">
 
                 <h4 class="fw-bolder"><%= @post.title %></h4>
 
             
-            <div class="d-flex border-top border-bottom p-3 mb-3">
+            <div class="d-flex border-top border-bottom p-1 mb-3">
                 <div class="me-auto p-2"><%= link_to ' Back', posts_path, class: "fas fa-arrow-left text-decoration-none", style: "color: #FC3E00;" %></div>
                 <div class="p-2">
-                    <%= link_to "", edit_post_path(@post), class: "fas fa-edit text-decoration-none" %>
+                    <%= link_to "", edit_post_path(@post), class: "fas fa-edit text-decoration-none", style: "color: green" %>
                     <%= link_to "", post_path(@post),
                         method: :delete,
                         data: { confirm: "Are you sure?" },  class: "fas fa-trash-alt text-decoration-none", style: "color: red;" %>
