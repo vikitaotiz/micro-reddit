@@ -1,11 +1,23 @@
+<div class="container">
     <div class="card shadow">
-        <div class="card-body">
+        <% if @post.post_image.attached? %>
+            <div class="bn_index_head">
+                    <%= image_tag @post.post_image, style: "width: 100%; height: 350px;" %>
                 
-            <div class="d-flex">
-                <h4 class="fw-bolder me-auto"><%= @post.title %></h4>
-                <small class="fst-italic fw-light"><%= @post.created_at.strftime("%Y %m %d") %></small>
-            </div>
-            
+                <div class="centered p-5 bn_index_text">
+                    <h4 class="fw-bolder"><%= @post.title %></h4>
+                    <small class="fst-italic fw-light"><%= @post.created_at.strftime("%Y %m %d") %></small>
+                </div>
+            </div>            
+        <% else %>
+   
+            <div class="centered p-5 bn_index_text_noimg">
+                    <h4 class="fw-bolder"><%= @post.title %></h4>
+                    <small class="fst-italic fw-light"><%= @post.created_at.strftime("%Y %m %d") %></small>
+                </div>
+                <% end %>
+        <div class="card-body">
+                   
             <div class="d-flex border-top border-bottom p-1 mb-3">
                 <div class="me-auto p-2"><%= link_to ' Back', posts_path, class: "fas fa-arrow-left text-decoration-none", style: "color: #FC3E00;" %></div>
                 <div class="p-2">
@@ -18,8 +30,10 @@
 
             <p class="card-text">
                 <%= @post.body %>
-                <h6 class="border-top border-bottom p-1 mb-3">Comments</h6>
-                <%= render @post.comments %>
+                <div class="container">
+                    <h6 class="border-top border-bottom p-1 mb-3">Comments</h6>
+                    <%= render @post.comments %>
+                </div>
 
                 <div class="container mt-4">
                     <h6 class="border-top border-bottom p-1 mb-3">Add Comment</h6>
@@ -28,3 +42,4 @@
             </p>
         </div>
     </div>
+</div>

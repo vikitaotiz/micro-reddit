@@ -9,3 +9,25 @@ html {
 .white-back {
   background-color: #fff;
 }
+
+.bn_index_head {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.bn_index_text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 3px solid;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.bn_index_text_noimg {
+  color: #fff;
+  text-align: center;
+  border: 3px solid;
+  background-color: rgba(0, 0, 0, 0.4);
+}

@@ -3,24 +3,27 @@
     <div class="row">
         <% @posts.first(4).each do |post| %>
             <div class="col-lg-3 col-md-6 col-sm-12 mb-3">
-                <div class="">
-                    <div class="card shadow rounded-5">
-                        <div class="card-body">
-                            <h5 class="card-title">
-                             <%= link_to post.title, post, class: "text-decoration-none" %>
-                            </h5>
+                <div class="card">
 
-                            <p class="card-text">
-                                <%= truncate(post.body, :length => 50) %>
-                            </p>
-                            
-                            <small class="d-flex fw-light fst-italic">
-                                <p class="me-auto">
-                                    <i class="far fa-comments"></i> <%= post.comments.count %>
-                                </p>
-                                <%= post.created_at.strftime("%Y %m %d") %>
-                            </small>
+                    <% if post.post_image.attached? %>
+                        <div style="position: relative;">
+                            <%= image_tag post.post_image, style: "width: 100%; height: 120px;" %>
+                            <div style="padding: 5px; position: absolute; top: 30%; left: 25%; background-color: rgba(0, 0, 0, 0.4);">
+                                <%= link_to post.title.upcase(), post, class: "text-decoration-none text-white fw-bold" %>
+                            </div>
                         </div>
+                    <% else %>
+                        <div class="centered p-5 bn_index_text_noimg">
+                            <%= link_to post.title, post, class: "text-decoration-none" %>
+                        </div>
+                    <% end %>
+                    <div class="card-body">
+                        <small class="d-flex fw-light fst-italic">
+                            <p class="me-auto">
+                                <i class="far fa-comments"></i> <%= post.comments.count %>
+                            </p>
+                            <%= post.created_at.strftime("%Y %m %d") %>
+                        </small>
                     </div>
                 </div>
             </div>
@@ -62,7 +65,11 @@
                           <%= link_to post.title, post, class: "text-decoration-none me-auto" %>
                           <%= post.created_at.strftime("%Y %m %d") %>
                         </p>
-                        <p class="card-text">
+                        <hr>
+                        <% if post.post_image.attached? %>
+                            <%= image_tag post.post_image, style: "width: 100%; height: 300px;" %>
+                        <% end %>
+                        <p class="card-text mt-2">
                             <%= truncate(post.body, :length => 50) %>
                         </p>
                         <small class="fw-light fst-italic">
