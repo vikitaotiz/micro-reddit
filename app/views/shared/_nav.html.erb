@@ -1,24 +1,29 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/">
-       <%= image_tag 'reddit-logo.JPG' %> Reddit</a>
+    <a class="navbar-brand fw-bolder" href="/">
+       <%= image_tag 'reddit-logo.JPG' %> redd<span style="color: #FE4801;">i</span>t</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link" href="/posts/new">Create New Post</a>
+        <li class="nav-item" style="margin-right: 10%;">
+          <a class="nav-link" href="/posts/new">
+          <i class="fas fa-plus"></i></a>
         </li>
         <li class="nav-item">
           <form class="d-flex">
-            <input class="form-control" type="search" placeholder="Search">
+            <input class="form-control" type="search" placeholder="Search" style="width: 600px;">
           </form>
         </li>
       </ul>
-      <form class="d-flex">
-        <button class="btn btn-outline-success" type="submit">Login</button>
-        <button class="btn btn-outline-success" type="submit">Sign Up</button>
+      <form class="d-flex" style="width: 300px;">
+        <button class="btn btn-outline-success btn-sm rounded-pill m-2" style="width: 80px;" type="submit">Login</button>
+        <button class="btn btn-primary btn-sm rounded-pill m-2" style="width: 80px;" type="submit">Sign Up</button>
+        <button type="button" class="btn btn-link text-decoration-none" style="color: #000;">
+          <i class="far fa-user"></i>
+          <i class="fas fa-angle-down"></i>
+          </button>
       </form>
     </div>
   </div>
