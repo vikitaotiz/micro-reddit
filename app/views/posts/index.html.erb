@@ -82,9 +82,17 @@
         </div>
         <div class="col-lg-4 col-md-6 col-sm-12 border">
             <div class="card shadow rounded">
+                <%= image_tag 'nature.jpg' %>
                 <div class="card-body">
+                    <div class="card-title">Top Stories</div>
                     <p class="card-text">
-                        Here’s an example of all the sub-components included in a responsive 
+                        <ul class="list-group list-group-flush">
+                            <% @posts.first(4).each do |post| %>
+                                <li class="list-group-item">
+                                    <%= link_to post.title, post, class: "text-decoration-none" %>
+                                </li>
+                            <% end %>
+                        </ul>
                     </p>
                 </div>
             </div>
