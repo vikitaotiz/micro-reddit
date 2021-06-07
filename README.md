@@ -4,7 +4,6 @@ This is a simple blogging application project written on ruby on rails. The proj
 
 ![viki-reddit](https://user-images.githubusercontent.com/42869046/120814860-f0efb500-c557-11eb-93ce-b1d63919aaff.JPG)
 
-
 ## Built With
 
 - Ruby
@@ -24,6 +23,9 @@ This is a simple blogging application project written on ruby on rails. The proj
 - Then run 'bundle install' to install all the required dependencies
 - Run 'rails server' to spin up a development server
 - Once the server is up, open this link 'http://127.0.0.1:3000' on your browser
+
+- Incase you get this error 'Webpacker::Manifest::MissingEntryError in posts#index'
+- Run 'bundle exec rake webpacker:install'
 
 ## About the game
 
