@@ -25,7 +25,7 @@ This is a simple blogging application project written on ruby on rails. The proj
 - Once the server is up, open this link 'http://127.0.0.1:3000' on your browser
 
 - Incase you get this error 'Webpacker::Manifest::MissingEntryError in posts#index'
-- Run 'bundle exec rake webpacker:install'
+- Run 'bundle exec rails webpacker:install'
 
 ## About the game
 
