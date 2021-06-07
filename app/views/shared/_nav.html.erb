@@ -6,24 +6,21 @@
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <form class="d-flex">
-            <input class="form-control" type="search" placeholder="Search" style="width: 600px;">
-          </form>
-        </li>
-      </ul>
-
-      <form class="d-flex" style="width: 250px;">
-        <button class="btn btn-outline-success btn-sm rounded-pill m-2" style="width: 80px;" type="submit">Login</button>
-        <button class="btn btn-primary btn-sm rounded-pill m-2" style="width: 80px;" type="submit">Sign Up</button>
-        <button type="button" class="btn btn-link text-decoration-none" style="color: #000;">
-          <i class="far fa-user"></i>
-          <i class="fas fa-angle-down"></i>
-        </button>
+    <form>
+        <% if current_user %>
+          <div class="dropdown">
+            <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="far fa-user"></i> <%= current_user.email %>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li><%= link_to ' Account Settings', edit_user_registration_path(current_user), class: "dropdown-item fas fa-cog" %></li>
+              <li><%= link_to ' Log Out', destroy_user_session_path, method: :delete, class: "dropdown-item fas fa-sign-out-alt" %></li>
+            </ul>
+          </div>
+        <% else %>
+          <%= link_to 'Log In', new_user_session_path, class: "btn btn-outline-success btn-sm rounded-pill m-2", style: "width: 80px" %>
+          <%= link_to 'Register', new_user_registration_path, class: "btn btn-primary btn-sm rounded-pill m-2", style: "width: 80px" %>
+        <% end %>
       </form>
-
-    </div>
   </div>
 </nav>

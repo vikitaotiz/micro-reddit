@@ -20,12 +20,15 @@
                    
             <div class="d-flex border-top border-bottom p-1 mb-3">
                 <div class="me-auto p-2"><%= link_to ' Back', posts_path, class: "fas fa-arrow-left text-decoration-none main_cl" %></div>
-                <div class="p-2">
-                    <%= link_to "", edit_post_path(@post), class: "fas fa-edit text-decoration-none cl_green" %>
-                    <%= link_to "", post_path(@post),
-                        method: :delete,
-                        data: { confirm: "Are you sure?" },  class: "fas fa-trash-alt text-decoration-non cl_red" %>
-                </div>
+
+                <% if user_signed_in? %>
+                    <div class="p-2">
+                        <%= link_to "", edit_post_path(@post), class: "fas fa-edit text-decoration-none cl_green" %>
+                        <%= link_to "", post_path(@post),
+                            method: :delete,
+                            data: { confirm: "Are you sure?" },  class: "fas fa-trash-alt text-decoration-non cl_red" %>
+                    </div>
+                <% end %>
             </div>
 
             <p class="card-text">
