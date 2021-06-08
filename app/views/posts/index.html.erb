@@ -1,0 +1,114 @@
+<div class="trending_news">
+    <p>Trending today</p>
+    <div class="row">
+        <% @posts.first(4).each do |post| %>
+            <div class="col-lg-3 col-md-6 col-sm-12 mb-3">
+                <div class="card shadow">
+                    <% if post.post_image.attached? %>
+                        <div style="position: relative;">
+                            <%= image_tag post.post_image, style: "width: 100%; height: 120px;" %>
+                            <div class="bn_img_1">
+                                <%= link_to post.title.upcase(), post, class: "text-decoration-none text-white fw-bold" %>
+                            </div>
+                        </div>
+                    <% else %>
+                        <div class="centered p-5 bn_index_text_noimg">
+                            <%= link_to post.title.upcase(), post, class: "text-decoration-none text-white fw-bold" %>
+                        </div>
+                    <% end %>
+                    <div class="card-body">
+                        <small class="d-flex fw-light fst-italic">
+                            <p class="me-auto">
+                                <i class="far fa-comments"></i> <%= post.comments.count %>
+                            </p>
+                            <%= post.created_at.strftime("%Y %m %d") %>
+                        </small>
+                    </div>
+                </div>
+            </div>
+        <% end %>
+    </div>
+</div>
+
+<div class="popular_posts">
+    <p>Popular Posts</p>
+    <div class="row">
+        <div class="col-lg-8 col-md-6 col-sm-12 border">
+            <div class="card shadow rounded mb-4">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col">
+                            <a class="nav-link" aria-current="page" href="#">
+                            <i class="fab fa-hotjar"></i> Hot</a>
+                        </div>  
+                        <div class="col">
+                            <div class="dropdown">
+                                <button class="btn btn-link dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    All Posts
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    <% @posts.each do |post| %>
+                                        <li class="list-group-item">
+                                            <%= link_to post.title, post, class: "dropdown-item text-decoration-none" %>
+
+                                        </li>
+                                    <% end %>
+                                </ul>
+                                </div>
+                        </div>   
+                        <div class="col">
+                            <a class="nav-link main_cl" aria-current="page" href="/posts/new">
+                            <i class="far fa-star"></i> New Post</a>
+                        </div>
+                        <div class="col">
+                            <a class="nav-link cl_grey" aria-current="page" href="#">
+                            <i class="far fa-arrow-alt-circle-up"></i> Top</a>
+                        </div>    
+                    </div>
+                </div>
+            </div>
+            
+            <% @posts.each do |post| %>
+                <div class="card shadow rounded mb-2">
+                    <div class="card-body">
+                        <p class="d-flex card-text">
+                          <%= link_to post.title, post, class: "text-decoration-none me-auto" %>
+                          <%= post.created_at.strftime("%Y %m %d") %>
+                        </p>
+                        <hr>
+                        <% if post.post_image.attached? %>
+                            <%= image_tag post.post_image, style: "width: 100%; height: 300px;" %>
+                        <% end %>
+                        <p class="card-text mt-2">
+                            <%= truncate(post.body, :length => 50) %>
+                        </p>
+                        <small class="fw-light fst-italic">
+                            <i class="far fa-comments"></i> <%= post.comments.count%>
+                        </small>
+                    </div>
+                </div>
+            <% end %>
+
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 border">
+            <div class="card shadow rounded">
+                <%= image_tag 'nature.jpg' %>
+                <div class="card-body">
+                    <div class="card-title">Top Stories</div>
+                    <p class="card-text">
+                        <ul class="list-group list-group-flush">
+                            <% @posts.first(4).each do |post| %>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <%= link_to post.title, post, class: "text-decoration-none" %>
+                                    <span class="badge rounded-pill" style="background: #D84918;">
+                                        <i class="far fa-comments"></i> <%= post.comments.count %>
+                                    </span>
+                                </li>
+                            <% end %>
+                        </ul>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

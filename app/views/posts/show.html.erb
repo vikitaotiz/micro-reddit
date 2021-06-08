@@ -1,0 +1,48 @@
+<div class="container">
+    <div class="card shadow">
+        <% if @post.post_image.attached? %>
+            <div class="bn_index_head">
+                    <%= image_tag @post.post_image, class: "show_img" %>
+                
+                <div class="centered p-5 bn_index_text">
+                    <h4 class="fw-bolder"><%= @post.title %></h4>
+                    <small class="fst-italic fw-light"><%= @post.created_at.strftime("%Y %m %d") %></small>
+                </div>
+            </div>            
+        <% else %>
+   
+            <div class="centered p-5 bn_index_text_noimg">
+                    <h4 class="fw-bolder"><%= @post.title %></h4>
+                    <small class="fst-italic fw-light"><%= @post.created_at.strftime("%Y %m %d") %></small>
+                </div>
+                <% end %>
+        <div class="card-body">
+                   
+            <div class="d-flex border-top border-bottom p-1 mb-3">
+                <div class="me-auto p-2"><%= link_to ' Back', posts_path, class: "fas fa-arrow-left text-decoration-none main_cl" %></div>
+
+                <% if user_signed_in? %>
+                    <div class="p-2">
+                        <%= link_to "", edit_post_path(@post), class: "fas fa-edit text-decoration-none cl_green" %>
+                        <%= link_to "", post_path(@post),
+                            method: :delete,
+                            data: { confirm: "Are you sure?" },  class: "fas fa-trash-alt text-decoration-non cl_red" %>
+                    </div>
+                <% end %>
+            </div>
+
+            <p class="card-text">
+                <%= @post.body %>
+                <div class="container">
+                    <h6 class="border-top border-bottom p-1 mb-3">Comments</h6>
+                    <%= render @post.comments %>
+                </div>
+
+                <div class="container mt-4">
+                    <h6 class="border-top border-bottom p-1 mb-3">Add Comment</h6>
+                    <%= render 'comments/form' %>
+                </div>
+            </p>
+        </div>
+    </div>
+</div>
