@@ -22,9 +22,11 @@ This is a simple blogging application project written on ruby on rails. The proj
 - After the clone, type in the command `cd micro-reddit` to access the app directory on the terminal
 - Then run 'bundle install' to install all the required dependencies
 - Then run 'npm install' to avoid this error 'Webpacker::Manifest::MissingEntryError in posts#index'
-- Run 'rails db:create db:migrate db:seed'
+- Run 'rails db:create db:migrate'
 - Run 'rails server' to spin up a development server
 - Once the server is up, open this link 'http://127.0.0.1:3000' on your browser
+
+- (Optional) Sign Up one user then run 'rails db:seed'
 
 ## About the game
 
